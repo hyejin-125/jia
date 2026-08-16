@@ -1,4 +1,5 @@
-Dockerfile
+## Dockerfile
+```bash
 FROM ubuntu:24.04
 RUN apt-get update && apt-get upgrade -y && \
   apt-get install -y --no-install-recommends curl ca-certificates && \
@@ -10,19 +11,30 @@ ENV TABLE_NAME="wskorea26-data-table"
 EXPOSE 8080
 CMD ["./book"]
 EOF
+```
+
+```bash
 #!/bin/bash
 sed -i "s/PasswordAuthentication no/PasswordAuthentication yes/g" /etc/ssh/sshd_config
 echo "ec2-user:1234" | chpasswd
 systemctl restart sshd
+```
+
+```bash
 curl --silent --location "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 sudo mv /tmp/eksctl /usr/local/bin
+```
+```bash
 CLUSTER_NAME="<클러스터 이름>"
 eksctl utils write-kubeconfig --name $CLUSTER_NAME
 eksctl utils associate-iam-oidc-provider --approve --cluster $CLUSTER_NAME
+```
 
-config.yml
+<br>
+
+## config.yml
 https://github.com/rebuy-de/aws-nuke/releases
-
+```bash
 regions:
   - global
   - us-east-1      # 미국 동부 (버지니아 북부)
@@ -78,5 +90,10 @@ accounts:
           value: "nuke -> *"
         - type: "glob"
           value: "sysop -> *"
+```
+```bash
 aws configure --profile <사용자 별칭>
+```
+```bash
 ./aws-nuke-v2.25.0-windows-amd64.exe -c ./config.yml --no-dry-run --profile <사용자 별칭>
+```
