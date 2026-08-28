@@ -1,0 +1,143 @@
+cat > apps.yaml <<EOF
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: user
+  namespace: apdev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: user
+  template:
+    metadata:
+      labels:
+        app: user
+    spec:
+      containers:
+      - name: user
+        image: ${ECR}/apdev-user:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: db-secret
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 20
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: user
+  namespace: apdev
+spec:
+  selector:
+    app: user
+  ports:
+  - port: 8080
+    targetPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: product
+  namespace: apdev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: product
+  template:
+    metadata:
+      labels:
+        app: product
+    spec:
+      containers:
+      - name: product
+        image: ${ECR}/apdev-product:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - secretRef:
+            name: db-secret
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+        livenessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 10
+          periodSeconds: 20
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: product
+  namespace: apdev
+spec:
+  selector:
+    app: product
+  ports:
+  - port: 8080
+    targetPort: 8080
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stress
+  namespace: apdev
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: stress
+  template:
+    metadata:
+      labels:
+        app: stress
+    spec:
+      containers:
+      - name: stress
+        image: ${ECR}/apdev-stress:latest
+        ports:
+        - containerPort: 8080
+        readinessProbe:
+          httpGet:
+            path: /healthcheck
+            port: 8080
+          initialDelaySeconds: 5
+          periodSeconds: 10
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: stress
+  namespace: apdev
+spec:
+  selector:
+    app: stress
+  ports:
+  - port: 8080
+    targetPort: 8080
+EOF
+
+kubectl apply -f apps.yaml
