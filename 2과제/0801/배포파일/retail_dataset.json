@@ -1,0 +1,231 @@
+{
+  "orders": [
+    {
+      "orderId": "O-1001",
+      "customerId": "C001",
+      "status": "PENDING",
+      "warehouseId": "W-A",
+      "createdAt": "2026-06-01T09:10:00Z",
+      "dueAt": "2026-06-04T00:00:00Z",
+      "totalAmount": 135.5,
+      "items": [
+        {
+          "productId": "P-RED-001",
+          "qty": 2,
+          "price": 45.0
+        },
+        {
+          "productId": "P-GRN-002",
+          "qty": 1,
+          "price": 45.5
+        }
+      ]
+    },
+    {
+      "orderId": "O-1002",
+      "customerId": "C002",
+      "status": "SHIPPED",
+      "warehouseId": "W-B",
+      "createdAt": "2026-05-28T14:25:00Z",
+      "dueAt": "2026-06-02T00:00:00Z",
+      "totalAmount": 89.0,
+      "items": [
+        {
+          "productId": "P-BLU-003",
+          "qty": 1,
+          "price": 89.0
+        }
+      ]
+    },
+    {
+      "orderId": "O-1003",
+      "customerId": "C003",
+      "status": "PENDING",
+      "warehouseId": "W-A",
+      "createdAt": "2026-06-02T11:00:00Z",
+      "dueAt": "2026-06-06T00:00:00Z",
+      "totalAmount": 210.0,
+      "items": [
+        {
+          "productId": "P-YLW-004",
+          "qty": 3,
+          "price": 70.0
+        }
+      ]
+    },
+    {
+      "orderId": "O-1004",
+      "customerId": "C001",
+      "status": "CANCELLED",
+      "warehouseId": "W-C",
+      "createdAt": "2026-05-20T10:30:00Z",
+      "dueAt": "2026-05-25T00:00:00Z",
+      "totalAmount": 32.0,
+      "items": [
+        {
+          "productId": "P-BLK-005",
+          "qty": 1,
+          "price": 32.0
+        }
+      ]
+    },
+    {
+      "orderId": "O-1005",
+      "customerId": "C004",
+      "status": "PROCESSING",
+      "warehouseId": "W-B",
+      "createdAt": "2026-06-01T18:45:00Z",
+      "dueAt": "2026-06-09T00:00:00Z",
+      "totalAmount": 178.2,
+      "items": [
+        {
+          "productId": "P-WHT-006",
+          "qty": 2,
+          "price": 89.1
+        }
+      ]
+    },
+    {
+      "orderId": "O-1006",
+      "customerId": "C001",
+      "status": "PENDING",
+      "warehouseId": "W-A",
+      "createdAt": "2026-06-03T08:00:00Z",
+      "dueAt": "2026-06-07T00:00:00Z",
+      "totalAmount": 56.0,
+      "items": [
+        {
+          "productId": "P-BLK-005",
+          "qty": 2,
+          "price": 28.0
+        }
+      ]
+    },
+    {
+      "orderId": "O-1007",
+      "customerId": "C005",
+      "status": "PENDING",
+      "warehouseId": "W-C",
+      "createdAt": "2026-06-03T12:35:00Z",
+      "dueAt": "2026-06-12T00:00:00Z",
+      "totalAmount": 330.0,
+      "items": [
+        {
+          "productId": "P-RED-001",
+          "qty": 5,
+          "price": 66.0
+        }
+      ]
+    },
+    {
+      "orderId": "O-1008",
+      "customerId": "C002",
+      "status": "SHIPPED",
+      "warehouseId": "W-A",
+      "createdAt": "2026-06-02T17:20:00Z",
+      "dueAt": "2026-06-05T00:00:00Z",
+      "totalAmount": 72.4,
+      "items": [
+        {
+          "productId": "P-GRN-002",
+          "qty": 2,
+          "price": 36.2
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "productId": "P-RED-001",
+      "warehouseId": "W-A",
+      "name": "Red Widget",
+      "category": "widget",
+      "stock": 4,
+      "reorderPoint": 10,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    },
+    {
+      "productId": "P-GRN-002",
+      "warehouseId": "W-A",
+      "name": "Green Widget",
+      "category": "widget",
+      "stock": 18,
+      "reorderPoint": 8,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    },
+    {
+      "productId": "P-BLU-003",
+      "warehouseId": "W-A",
+      "name": "Blue Widget",
+      "category": "widget",
+      "stock": 1,
+      "reorderPoint": 5,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    },
+    {
+      "productId": "P-YLW-004",
+      "warehouseId": "W-B",
+      "name": "Yellow Tool",
+      "category": "tool",
+      "stock": 7,
+      "reorderPoint": 7,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    },
+    {
+      "productId": "P-BLK-005",
+      "warehouseId": "W-C",
+      "name": "Black Part",
+      "category": "part",
+      "stock": 12,
+      "reorderPoint": 5,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    },
+    {
+      "productId": "P-WHT-006",
+      "warehouseId": "W-B",
+      "name": "White Tool",
+      "category": "tool",
+      "stock": 2,
+      "reorderPoint": 6,
+      "updatedAt": "2026-06-03T00:00:00Z"
+    }
+  ],
+  "sessions": [
+    {
+      "sessionId": "S-9001",
+      "customerId": "C001",
+      "lastSeen": "2026-06-03T10:00:00Z",
+      "expiresAt": "2026-12-01T00:00:00Z",
+      "cart": [
+        {
+          "productId": "P-RED-001",
+          "qty": 1
+        }
+      ]
+    },
+    {
+      "sessionId": "S-9002",
+      "customerId": "C002",
+      "lastSeen": "2026-06-03T10:05:00Z",
+      "expiresAt": "2026-12-02T00:00:00Z",
+      "cart": [
+        {
+          "productId": "P-GRN-002",
+          "qty": 2
+        }
+      ]
+    },
+    {
+      "sessionId": "S-9003",
+      "customerId": "C003",
+      "lastSeen": "2026-06-03T10:10:00Z",
+      "expiresAt": "2026-12-03T00:00:00Z",
+      "cart": [
+        {
+          "productId": "P-YLW-004",
+          "qty": 1
+        }
+      ]
+    }
+  ]
+}
